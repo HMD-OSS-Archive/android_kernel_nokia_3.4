@@ -805,14 +805,12 @@ static int ilitek_plat_probe(void)
         ILI_ERR("Register gpio failed\n");
         goto ili_probe_failed;
     }
+	ili_irq_register(ilits->irq_tirgger_type);
 
 	if (ili_tddi_init() < 0) {
 		ILI_ERR("ILITEK Driver probe failed\n");
         goto ili_probe_failed;
 	}
-
-	ili_irq_register(ilits->irq_tirgger_type);
-
 #if SPRD_SYSFS_SUSPEND_RESUME
 	ili_sysfs_add_device(ilits->dev);
 	if (sysfs_create_link(NULL, &ilits->dev->kobj, "touchscreen") < 0)

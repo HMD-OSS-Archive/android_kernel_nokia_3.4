@@ -62,7 +62,7 @@ static unsigned char CTPM_FW_BOE[] = {
 #define BOE_SB_INI_REQUEST_PATH		"mp_7806s_txd_boe_sb.ini"
 #define BOE_SB_FW_REQUEST_PATH		"ILITEK_FW_7806s_txd_boe_sb"
 static unsigned char CTPM_FW_BOE_SB[] = {
-	#include "BOE_639_LongH_V0x16_0x06_0x00_AP_0x03_MP_20201030.ili"
+	#include "7806S_BOE639_LongH_V0x04_0x01_0x00_AP_0x02_0x00_MP_20200825.ili"
 };
 /* HMD code for DRSTRANGE-234 by zhouzichun at 2020/08/29 end */
 #define INX_INI_NAME_PATH		"/sdcard/mp_inx.ini"

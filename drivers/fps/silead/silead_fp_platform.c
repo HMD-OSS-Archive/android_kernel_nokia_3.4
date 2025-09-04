@@ -211,7 +211,9 @@ static nav_keymap_t keymap[] = {
     { NAV_KEY_LEFT,     KEY_RESERVED,   },
     { NAV_KEY_CLICK,    KEY_RESERVED,   },
     { NAV_KEY_DCLICK,   KEY_RESERVED,   },
-    { NAV_KEY_LONGPRESS,KEY_FP_GESTURE_LONG_PRESS,   },
+/* HUAQIN code for DRD-3065 by shibinbin at 2021/01/19 start */
+    { NAV_KEY_LONGPRESS,KEY_RESERVED,   },
+/* HUAQIN code for DRD-3065 by shibinbin at 2021/01/19 end */
 };
 #else
 static nav_keymap_t keymap[] = {
@@ -450,15 +452,14 @@ static ssize_t silfp_read(struct file *fd, char __user *buf, size_t len,loff_t *
     }
 
     fp_dev = fd->private_data;
-    /* Determines whether the message queue is empty,if it's empty,return -EINCAL */
-    if (list_empty(&fp_dev->msg_q)) {
+    if (!list_empty(&fp_dev->msg_q)) {
         return -EINVAL;
     }
 
     spin_lock_irqsave(&fp_dev->read_lock, flags);
     while(list_empty(&fp_dev->msg_q)) {
         spin_unlock_irqrestore(&fp_dev->read_lock, flags);
-        if (wait_event_interruptible(fp_dev->read_queue, !list_empty(&fp_dev->msg_q))){
+        if (wait_event_interruptible(fp_dev->read_queue, !list_empty(&fp_dev->msg_q))) {
             return -EINVAL;
         }
         spin_lock_irqsave(&fp_dev->read_lock, flags);
@@ -482,6 +483,7 @@ static ssize_t silfp_read(struct file *fd, char __user *buf, size_t len,loff_t *
     list_del(&list->list);
     kfree(list);
     spin_unlock_irqrestore(&fp_dev->read_lock, flags);
+
     return msglen;
 }
 #endif /* BSP_SIL_NETLINK */

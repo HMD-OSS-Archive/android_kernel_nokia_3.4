@@ -3269,9 +3269,9 @@ static int mp_show_result(bool lcm_on)
 		}
 
 		if (lcm_on)
-			snprintf(csv_name, (CSV_FILE_SIZE - csv_len), "%s/%s_%s_%s.csv", CSV_LCM_ON_PATH,ilits->md_name, get_date_time_str(), ret_fail_name);
+			snprintf(csv_name, (CSV_FILE_SIZE - csv_len), "%s/%s_%s_%s.csv", CSV_LCM_ON_PATH,ilits->md_name, get_date_time_str(), ret_pass_name);
 		else
-			snprintf(csv_name, (CSV_FILE_SIZE - csv_len), "%s/%s_%s_%s.csv", CSV_LCM_OFF_PATH,ilits->md_name, get_date_time_str(), ret_fail_name);
+			snprintf(csv_name, (CSV_FILE_SIZE - csv_len), "%s/%s_%s_%s.csv", CSV_LCM_OFF_PATH,ilits->md_name, get_date_time_str(), ret_pass_name);
 	} else {
 		core_mp.final_result = MP_DATA_PASS;
 		ret = MP_DATA_PASS;

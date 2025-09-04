@@ -511,17 +511,12 @@ KBUILD_CFLAGS   += -DHQ_FACTORY_BUILD
 KBUILD_CPPFLAGS += -DHQ_FACTORY_BUILD
 endif
 
-# huaqin add for DRS-4649 by yanghui at 2020/9/11 start
+# huaqin add for DRS-4649 by yanghui at 2020/9/11 start and DRD-2560 at 20201112
 ifneq ($(TARGET_BUILD_VARIANT),user)
         KBUILD_CFLAGS   += -DTARGET_BUILD_DEBUG
         KBUILD_CPPFLAGS += -DTARGET_BUILD_DEBUG
-else
-        ifeq ($(PROJECT_NAME),ZQL1849)
-                KBUILD_CFLAGS   += -DTARGET_BUILD_DEBUG
-                KBUILD_CPPFLAGS += -DTARGET_BUILD_DEBUG
-        endif
 endif
-# huaqin add for DRS-4649 by yanghui at 2020/9/11 end
+# huaqin add for DRS-4649 by yanghui at 2020/9/11 end and DRD-2560 at 20201112
 
 RETPOLINE_CFLAGS_GCC := -mindirect-branch=thunk-extern -mindirect-branch-register
 RETPOLINE_VDSO_CFLAGS_GCC := -mindirect-branch=thunk-inline -mindirect-branch-register

@@ -57,9 +57,7 @@
 
 #define MTP_RX_BUFFER_INIT_SIZE    1048576
 #define MTP_TX_BUFFER_INIT_SIZE    1048576
-/*Huaqin added for DRS-4309 by wangzikang at 2020/09/07 start */
 #define MTP_BULK_BUFFER_SIZE       16384
-/*Huaqin added for DRS-4309 by wangzikang at 2020/09/07 end */
 #define INTR_BUFFER_SIZE           28
 #define MAX_INST_NAME_LEN          40
 #define MTP_MAX_FILE_SIZE          0xFFFFFFFFL

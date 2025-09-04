@@ -368,7 +368,11 @@ static int ff_ctl_register_input(void)
         input_set_capability(g_context->input, EV_KEY, g_config->keycode_nav_down    );
         input_set_capability(g_context->input, EV_KEY, g_config->keycode_double_click);
         input_set_capability(g_context->input, EV_KEY, g_config->keycode_click       );
+	/* HUAQIN code for DRD-3065 by shibinbin at 2021/01/19 start */
+	#if defined (CONFIG_PRODUCT_DRDOOM)
         input_set_capability(g_context->input, EV_KEY, g_config->keycode_long_press  );
+	#endif
+	/* HUAQIN code for DRD-3065 by shibinbin at 2021/01/19 end */
         input_set_capability(g_context->input, EV_KEY, g_config->keycode_simulation  );
     }
     #endif

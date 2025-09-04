@@ -337,11 +337,11 @@
 
 #define KEY_MICMUTE		248	/* Mute / unmute the microphone */
 
-/*HMD_1838 code for DRS-2358 by shibinbin at 2020/08/27 start*/
-#define KEYCODE_SYSTEM_NAVIGATION_UP     745   /* add fingerprint UP press key code */
-#define KEYCODE_SYSTEM_NAVIGATION_DOWN   746   /* add fingerprint DOWN press key code */
-#define KEY_FP_GESTURE_LONG_PRESS        744   /* add fingerprint long press key code */
-/*HMD_1838 code for DRS-2358 by shibinbin at 2020/08/27 end*/
+/*HMD_1838 code for DRS-2358 by shibinbin at 2020/08/03 start*/
+#define KEYCODE_SYSTEM_NAVIGATION_UP     280   /* add fingerprint UP press key code */
+#define KEYCODE_SYSTEM_NAVIGATION_DOWN   281   /* add fingerprint DOWN press key code */
+#define KEY_FP_GESTURE_LONG_PRESS        290   /* add fingerprint long press key code */
+/*HMD_1838 code for DRS-2358 by shibinbin at 2020/08/03 end*/
 
 /* Code 255 is reserved for special needs of AT keyboard driver */
 

@@ -81,7 +81,7 @@ static ssize_t proinfo_##name##_store(struct device * dev, struct device_attribu
 static ssize_t proinfo_##name##_show(struct device *dev, struct device_attribute *attr, char *buf)\
 {\
 	int ret = -1;\
-	char pbuf[WT_PROINFO_STRING_LEN];\
+	char pbuf[257];\
 	printk("entry  %s\n",__FUNCTION__);\
 \
 	ret = wt_proinfo_read(WT_PROINFO_##name,pbuf);\
@@ -488,7 +488,7 @@ static int wt_proinfo_read(wt_proinfo_type type, char* buf)
                 printk("%s:mzss123  Read bytes from proinfo failed! %d\n", __func__, ret);
                 return -1;
             }
-            memcpy(fl_buf, temp_buf, WT_PROINFO_STRING_LEN);
+            memcpy(fl_buf, temp_buf, WT_PROINFO_REMOTE_LOCK_VLAUE_LEN);
             
             printk("%s,lingyuguo mzss123 remote_lock_value memcpy fl_buf:%s, temp_buf len:%d\n",__func__,fl_buf,WT_PROINFO_REMOTE_LOCK_VLAUE_LEN);
 			break;
